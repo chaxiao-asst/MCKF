@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabric服务端 - MC开服</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="Icon.js"></script>
+</head>
+<body>
+    <!-- 全局导航栏 -->
+    <div class="global-nav" id="globalNav">
+        <div class="global-nav-container">
+            <a href="index.html" class="global-nav-btn">
+                <i class="fas fa-home"></i>首页
+            </a>
+            <a href="module1.html" class="global-nav-btn">
+                <i class="fas fa-home"></i>简幻欢
+            </a>
+            <a href="module2.html" class="global-nav-btn">
+                <i class="fas fa-puzzle-piece"></i>Forge服务端
+            </a>
+            <a href="module3.html" class="global-nav-btn active">
+                <i class="fas fa-cube"></i>Fabric服务端
+            </a>
+            <a href="module4.html" class="global-nav-btn">
+                <i class="fas fa-cubes"></i>NeoForge服务端
+            </a>
+        </div>
+    </div>
+
+    <!-- 模块3：Fabric服务端 -->
+    <div class="module-container" id="module3">
+        <div id="module3-top"></div>
+        <h1><i class="fas fa-cube"></i>Fabric服务端配置</h1>
+
+        <h2 id="start-sh3"><i class="fas fa-file-code"></i>start.sh 文件内容</h2>
+        <div class="note">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <strong>注意：</strong>前面加#代表注释（不执行），修改配置后需要保存并重启服务。
+            </div>
+        </div>
+        <div class="code-display start-sh">
+            <button class="copy-btn"><i class="fas fa-copy"></i>复制</button>
+            <pre>
+<span class="sh-variable">openjdk8</span>=<span class="sh-value">"/usr/bin/jdk/jdk1.8.0_361/bin/java"</span>
+<span class="sh-variable">openjdk11</span>=<span class="sh-value">"/usr/bin/jdk/jdk-11.0.18/bin/java"</span>
+<span class="sh-variable">openjdk17</span>=<span class="sh-value">"/usr/bin/jdk/jdk-17.0.6/bin/java"</span>
+<span class="sh-variable">openjdk19</span>=<span class="sh-value">"/usr/bin/jdk/jdk-19.0.2/bin/java"</span>
+<span class="sh-variable">openjdk21</span>=<span class="sh-value">"/usr/bin/jdk/jdk-21.0.2/bin/java"</span>
+<span class="sh-variable">openjdk25</span>=<span class="sh-value">"/usr/bin/jdk/jdk-25.0.2/bin/java"</span>               
+
+<span class="sh-comment">#Fabric服务端安装依赖 </span>
+<span class="sh-comment">#${openjdk17} -server -Dfile.encoding=UTF-8 -Duser.language=zh -Duser.country=CN -jar [服务端].jar --installServer</span>
+
+<span class="sh-comment">#Fabric服务端启动命令</span>
+<span class="sh-comment">#${openjdk17} -Xms1024M -Xmx${SERVER_MEMORY}M -jar [服务端].jar -nogui</span></pre>
+        </div>
+
+        <h2 id="fabric-server"><i class="fas fa-server"></i>Fabric服务端</h2>
+        <div class="module">
+            <div class="module-title"><i class="fas fa-box"></i>Fabric服务端信息</div>
+            <div style="margin-bottom: 18px;">
+                <strong>链接：</strong>
+                <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <i class="fas fa-download"></i>Fabric服务端
+                </a>
+            </div>
+            <div class="note">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>版本说明：</strong>Fabric提供了通用安装器，可选择对应MC版本进行安装，体积更小，启动速度更快。
+                </div>
+            </div>
+        </div>
+
+        <!-- Fabric安装依赖命令 -->
+        <h2 id="install-core3"><i class="fas fa-download"></i>安装依赖命令</h2>
+        <div class="module">
+            <div class="module-title"><i class="fas fa-wrench"></i>Fabric服务端安装依赖命令</div>
+            <div class="code-display install-core">
+                <button class="copy-btn"><i class="fas fa-copy"></i>复制</button>
+                <pre>${openjdk17} -server -Dfile.encoding=UTF-8 -Duser.language=zh -Duser.country=CN -jar [服务端].jar --installServer</pre>
+            </div>
+            <div class="note success" style="margin-top: 15px;">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>参数说明：</strong><br>
+                    <span class="cmd-params">server</span>：指定以服务器模式安装<br>
+                    <span class="cmd-params">-downloadMinecraft</span>：自动下载对应的Minecraft服务端文件<br>
+                    <span class="cmd-variable">${openjdk17}</span>：根据MC版本调整Java版本
+                </div>
+            </div>
+        </div>
+
+        <h2 id="common-server-cmd3"><i class="fas fa-play"></i>启动命令</h2>
+        <div class="module">
+            <div class="code-display start-command">
+                <button class="copy-btn"><i class="fas fa-copy"></i>复制</button>
+                <pre>${openjdk17} -Xms1024M -Xmx${SERVER_MEMORY}M -jar [服务端].jar -nogui</pre>
+            </div>
+            <div class="note" style="margin-top: 15px;">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>参数说明：</strong><br>
+                    <span class="cmd-params">-Xms</span>：设置初始内存（建议1024M或更高）<br>
+                    <span class="cmd-params">-Xmx</span>：设置最大内存（根据服务器配置调整）<br>
+                    <span class="cmd-params">-nogui</span>：禁用图形界面，适合服务器运行
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 复制提示框 -->
+    <div class="copy-toast" id="copyToast">
+        <i class="fas fa-check"></i> 复制成功！
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
