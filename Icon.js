@@ -1,6 +1,6 @@
 // 动态添加站点图标
 function addFavicon() {
-    const faviconUrl = '链接';
+    const faviconUrl = 'URL链接';
     const link = document.createElement('link');
     link.rel = 'icon';
     link.href = faviconUrl;
